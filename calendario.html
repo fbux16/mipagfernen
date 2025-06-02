@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario de Grupo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+            color: #006747; /* Verde fuerte */
+        }
+
+        p {
+            text-align: center;
+            font-size: 16px;
+            color: #006747; /* Verde fuerte */
+        }
+
+        table {
+            width: 90%; /* Aumentar el ancho de la tabla */
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        th, td {
+            border: 1px solid #006747;
+            padding: 12px 15px;
+            text-align: center;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        th {
+            background-color: #004f3d; /* Verde oscuro */
+            color: white;
+        }
+
+        td {
+            background-color: #e8f5e9; /* Verde suave */
+        }
+
+        td:hover {
+            background-color: #d1e7d3; /* Resalta cuando se pasa el cursor */
+            cursor: pointer;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f1f8f4; /* Color alternativo para filas pares */
+        }
+
+        tr:hover td {
+            background-color: #c8e6c9; /* Resaltar fila completa */
+        }
+
+        .header-row td {
+            font-weight: bold;
+            background-color: #388e3c; /* Verde más intenso */
+            color: white;
+        }
+
+        .receso {
+            background-color: #c8e6c9; /* Verde claro para el receso */
+            font-weight: bold;
+        }
+
+        /* Estilo para los botones de regresar y modo oscuro */
+        .button {
+            background-color: #c8e6c9;
+            color: #2e7d32;
+            font-weight: 700;
+            font-size: 16px;
+            border: 2px solid #2e7d32;
+            border-radius: 0.4em;
+            box-shadow: 0.1em 0.1em;
+            cursor: pointer;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #a5d6a7;
+        }
+
+        .button:active {
+            transform: translate(0.05em, 0.05em);
+            box-shadow: 0.05em 0.05em;
+        }
+
+        /* Estilos de modo oscuro */
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        .dark-mode table {
+            background-color: #333;
+        }
+
+        .dark-mode th {
+            background-color: #004f3d; /* Fondo más oscuro para el encabezado */
+            color: white;
+        }
+
+        .dark-mode td {
+            background-color: #444; /* Color de fondo de las celdas */
+            color: white; /* Color de texto */
+            border: 1px solid #555; /* Colores de borde más suaves */
+        }
+
+        .dark-mode td:hover {
+            background-color: #555; /* Cambio de color al pasar el cursor */
+        }
+
+        .dark-mode .receso {
+            background-color: #2c6e49; /* Receso con un verde más oscuro */
+        }
+
+        /* Cambiar colores de las filas pares en modo oscuro */
+        .dark-mode tr:nth-child(even) td {
+            background-color: #3a3a3a;
+        }
+
+        /* Hacer que los textos sean más legibles en modo oscuro */
+        .dark-mode h2, .dark-mode p {
+            color: #e0e0e0;
+        }
+
+        /* Posicionamiento del botón de modo oscuro en la esquina superior derecha */
+        .dark-mode-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #c8e6c9;
+            color: #2e7d32;
+            font-weight: 700;
+            font-size: 16px;
+            border: 2px solid #2e7d32;
+            border-radius: 0.4em;
+            box-shadow: 0.1em 0.1em;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .dark-mode-btn:hover {
+            background-color: #a5d6a7;
+        }
+
+        .dark-mode-btn:active {
+            transform: translate(0.05em, 0.05em);
+            box-shadow: 0.05em 0.05em;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Botón de Regresar (opcional) -->
+    <div class="back-button" style="margin: 15px;">
+        <a href="index.html" class="button">← Regresar</a>
+    </div>
+    
+    <!-- Botón de Modo Oscuro en la parte superior derecha -->
+    <button class="dark-mode-btn" onclick="toggleMode()">Modo Oscuro</button>
+
+    <h2>Horario de Grupo - Semestre Agosto 2024 - Febrero 2025</h2>
+    <h1><p><strong>Grupo:</strong> 303</p></h1>
+    <h1><p><strong>Semestre:</strong> Tercero</p></h1>
+    <h1><p><strong>Turno:</strong> Matutino</p></h1>
+    <h1><p><strong>Especialidad:</strong> Programación</p></h1>
+
+    <table>
+        <tr class="header-row">
+            <td>Hora</td>
+            <td>Lunes</td>
+            <td>Aula</td>
+            <td>Martes</td>
+            <td>Aula</td>
+            <td>Miércoles</td>
+            <td>Aula</td>
+            <td>Jueves</td>
+            <td>Aula</td>
+            <td>Viernes</td>
+            <td>Aula</td>
+        </tr>
+        <!-- Aquí van los contenidos de la tabla -->
+        <tr>
+            <td>7:00 - 7:50</td>
+            <td>Pensamiento Matemático II</td>
+            <td>303</td>
+            <td>Aplica Metodología Espiral con Programación Orientada a Objetos</td>
+            <td>S2</td>
+            <td>Aplica Metodología de Desarrollo Rápido de Aplicaciones con Programación Orientada a Eventos</td>
+            <td>303</td>
+            <td>Aplica Metodología Espiral con Programación Orientada a Objetos</td>
+            <td>303</td>
+            <td>Ecosistemas, Interacciones, Energía y Dinámica</td>
+            <td>LCE</td>
+        </tr>
+        <tr>
+            <td>7:50 - 8:40</td>
+            <td>Pensamiento Matemático II</td>
+            <td>303</td>
+            <td>Aplica Metodología Espiral con Programación Orientada a Objetos</td>
+            <td>S2</td>
+            <td>Inglés II</td>
+            <td>303</td>
+            <td>Aplica Metodología de Desarrollo Rápido de Aplicaciones con Programación Orientada a Eventos</td>
+            <td>303</td>
+            <td>Ecosistemas, Interacciones, Energía y Dinámica</td>
+            <td>LCE</td>
+        </tr>
+        <tr>
+            <td>8:40 - 9:30</td>
+            <td>Aplica Metodología de Desarrollo Rápido de Aplicaciones con Programación Orientada a Eventos</td>
+            <td>303</td>
+            <td>Aplica Metodología Espiral con Programación Orientada a Objetos</td>
+            <td>303</td>
+            <td>Inglés II</td>
+            <td>303</td>
+            <td>Aplica Metodología de Desarrollo Rápido de Aplicaciones con Programación Orientada a Eventos</td>
+            <td>S2</td>
+            <td>Humanidades II</td>
+            <td>303</td>
+        </tr>
+        <tr class="receso">
+            <td colspan="11"><strong>Receso (9:30 - 10:00)</strong></td>
+        </tr>
+        <tr>
+            <td>10:00 - 10:50</td>
+            <td>Aplica Metodología de Desarrollo Rápido de Aplicaciones con Programación Orientada a Eventos</td>
+            <td>303</td>
+            <td>Aplica Metodología de Desarrollo Rápido de Aplicaciones con Programación Orientada a Eventos</td>
+            <td>303</td>
+            <td>Recursos Socioemocionales</td>
+            <td>303</td>
+            <td>Ecosistemas, Interacciones, Energía y Dinámica</td>
+            <td>303</td>
+            <td>Inglés II</td>
+            <td>SI</td>
+        </tr>
+        <tr>
+            <td>10:50 - 11:40</td>
+            <td>Aplica Metodología de Desarrollo Rápido de Aplicaciones con Programación Orientada a Eventos</td>
+            <td>303</td>
+            <td>Aplica Metodología de Desarrollo Rápido de Aplicaciones con Programación Orientada a Objetos</td>
+            <td>303</td>
+            <td>Aplica Metodología Espiral con Programación Orientada a Objetos</td>
+            <td>303</td>
+            <td>Ecosistemas, Interacciones, Energía y Dinámica</td>
+            <td>303</td>
+            <td>Orientación</td>
+            <td>303</td>
+        </tr>
+        <tr>
+            <td>11:40 - 12:30</td>
+            <td>Aplica Metodología Espiral con Programación Orientada a Objetos</td>
+            <td>303</td>
+            <td>Pensamiento matematico</td>
+            <td>303</td>
+            <td>Aplica Metodología Espiral con Programación Orientada a Objetos</td>
+            <td>303</td>
+            <td>Humanidades II</td>
+            <td>303</td>
+            <td>Lengua y Comunicación II</td>
+            <td>303</td>
+        </tr>
+        <tr>
+            <td>12:30 - 13:20</td>
+            <td>Aplica Metodología Espiral con Programación Orientada a Objetos</td>
+            <td>303</td>
+            <td>Pensamiento Matemático II</td>
+            <td>303</td>
+            <td> Aplica Metodología Espiral con Programación Orientada a Objetos</td>
+            <td>303</td>
+            <td>Humanidades II</td>
+            <td>303</td>
+            <td>Lengua y Comunicación II</td>
+            <td>303</td>
+        </tr>
+        <tr>
+            <td>13:20 - 14:10</td>
+            <td></td>
+            <td>303</td>
+            <td>Orientacion</td>
+            <td></td>
+            <td></td>
+            <td>303</td>
+            <td>Humanidades II</td>
+            <td></td>
+            <td>Lengua y comunicacion</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+        // Función para alternar el modo oscuro
+        function toggleMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+
+</html>
